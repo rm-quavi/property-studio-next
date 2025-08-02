@@ -2,7 +2,8 @@
 
 import { useState } from 'react'
 import { useRouter } from 'next/navigation'
-import { Image, Trash2 } from 'lucide-react'
+import NextImage from 'next/image'
+import { Image as LucideImage, Trash2 } from 'lucide-react'
 import TheHeader from '@/components/TheHeader'
 import { usePropertyStore } from '@/store/propertyStore'
 import { defaultProperty } from '@/data/properties'
@@ -77,13 +78,13 @@ export default function AddPropertyPage() {
       <div className="max-w-5xl mx-auto p-4">
         <div className="flex flex-wrap flex-col md:flex-row md:flex-nowrap">
           <h2 className="font-light text-2xl mb-4 md:hidden">Add a new property</h2>
-          <div className="md:basis-2/5 mb-4 flex flex-col items-center">
+          <div className="w-full md:basis-2/5 mb-4 flex flex-col items-center">
             {!propertyForm.image ? (
               <label
                 htmlFor="imageFileInput"
-                className="my-4 md:mt-15 w-30 h-30 rounded-lg bg-gray-200 flex items-center justify-center flex-col text-center relative cursor-pointer"
+                className="my-4 md:mt-15 w-full max-w-xs h-48 rounded-lg bg-gray-200 flex items-center justify-center flex-col text-center relative cursor-pointer"
               >
-                <Image className="w-9 h-9 text-gray-500 mb-3" />
+                <LucideImage className="w-9 h-9 text-gray-500 mb-3" />
                 <span className="text-gray-500 text-xs">Select an image</span>
                 <input
                   id="imageFileInput"
@@ -94,8 +95,14 @@ export default function AddPropertyPage() {
                 />
               </label>
             ) : (
-              <div className="flex flex-col items-center">
-                <img src={propertyForm.image} alt="Property Image" className="w-full h-auto rounded-lg shadow-md" />
+              <div className="flex flex-col items-center w-full">
+                <NextImage 
+                  src={propertyForm.image} 
+                  alt="Property Image" 
+                  className="w-full h-auto rounded-lg shadow-md object-cover" 
+                  width={600} 
+                  height={400} 
+                />
                 <button
                   className="mt-3 text-red-500 text-sm flex items-center cursor-pointer"
                   onClick={() => setPropertyForm(prev => ({ ...prev, image: '' }))}
@@ -108,7 +115,7 @@ export default function AddPropertyPage() {
             {hasImageError && <span className="text-red-500 text-xs">Please select an image for the property</span>}
           </div>
 
-          <div className="md:basis-3/5 md:pl-6 w-full">
+          <div className="w-full md:basis-3/5 md:pl-6">
             <h2 className="font-light text-2xl mb-4 hidden md:block">Add a new property</h2>
             <div>
               <label htmlFor="name" className="form-label">

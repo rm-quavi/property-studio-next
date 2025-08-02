@@ -4,6 +4,7 @@ import { useState } from 'react'
 import Link from 'next/link'
 import { useRouter } from 'next/navigation'
 import { Search } from 'lucide-react'
+import Image from 'next/image'
 
 export default function TheHeader() {
   const router = useRouter()
@@ -26,7 +27,7 @@ export default function TheHeader() {
   return (
     <header className="p-3 shadow-md bg-white flex items-center">
       <Link href="/" className="font-light flex items-center">
-        <img alt="Property Studio logo" className="logo" src="/PS_LOGO.png" width="30" height="30" />
+        <Image alt="Property Studio logo" className="logo" src="/PS_LOGO.png" width={30} height={30} />
         <span className="hidden md:block ml-4">Property Studio</span>
       </Link>
       <div className="flex grow"></div>
