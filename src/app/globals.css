@@ -1,26 +1,40 @@
-@import "tailwindcss";
+@import 'tailwindcss';
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
-
+html,
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background-color: #f9f9f9;
+  font-family: 'Montserrat', sans-serif;
+  letter-spacing: 0.02em;
+}
+
+@theme {
+  --color-primary: #2e3092;
+}
+
+/* Hide Next.js development overlay and floating icons */
+#__next-build-indicator,
+#__next-prerender-indicator,
+.nextjs-toast-errors-parent {
+  display: none !important;
+}
+
+/* Hide React Developer Tools icon if present */
+#__react-dev-tools {
+  display: none !important;
+}
+
+.form-input {
+  @apply rounded-md border border-gray-300 px-3 py-2 shadow-sm focus:border-blue-500 focus:ring-blue-500 text-sm;
+}
+
+.form-select {
+  @apply rounded-md border border-gray-300 px-2 py-2 text-gray-700 shadow-sm focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500;
+}
+
+.form-label {
+  @apply block text-xs font-light text-gray-600 mb-1;
+}
+
+.primary-button {
+  @apply text-sm rounded-lg py-2 px-6 bg-primary text-white cursor-pointer font-light;
 }

@@ -1,28 +1,24 @@
-import { db } from "@/db"
-import Link from "next/link"
-import Image from "next/image"
-import type { Property } from "@/generated/prisma";
+'use client'
 
-export default async function Home() {
-  const properties: Property[] = await db.property.findMany()
+import { useEffect } from 'react'
+import TheHeader from '@/components/TheHeader'
+import PropertyList from '@/components/property/PropertyList'
+import { usePropertyStore } from '@/store/propertyStore'
 
-  const propertyList = properties.map((property) => {
-    return <Link
-      key={property.id}
-      href={`/properties/${property.id}`}
-    >
-      <div>
-        <h2>{property.name}</h2>
-        <p>{property.description}</p>
-        <p>Price: ${property.price}</p>
-      </div>
-    </Link>
-  })
+export default function HomePage() {
+  const { properties, fetchAllProperties } = usePropertyStore()
+
+  useEffect(() => {
+    fetchAllProperties()
+  }, [fetchAllProperties])
+
   return (
     <div>
-      <h1>Welcome!</h1>
-      <div className="flex flex-col gap-2">
-        {propertyList.length > 0 ? propertyList : <p>No properties available.</p>}
+      <TheHeader />
+      <div className="container mx-auto">
+        <PropertyList properties={properties}>
+          <h1 className="font-light text-gray-800 text-4xl">Your properties</h1>
+        </PropertyList>
       </div>
     </div>
   )

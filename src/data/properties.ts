@@ -1,0 +1,162 @@
+import type { Property } from '@/types/Property'
+
+const defaultProperty: Property = {
+  id: 0,
+  name: '',
+  address: '',
+  price: 0,
+  description: '',
+  status: 'Available',
+  image: '',
+  isDeleted: false,
+  createdAt: '',
+  updatedAt: '',
+}
+
+const properties: Property[] = [
+  {
+    id: 1,
+    name: 'Manhattan Modern Flat',
+    address: '123 Main St, New York, NY',
+    price: 500000,
+    description:
+      'Beautiful 2-bedroom apartment in the heart of Manhattan, offering modern amenities and sweeping city views. The open-concept living area is perfect for entertaining guests or relaxing after a long day. Stainless steel appliances and granite countertops elevate the kitchen space. Enjoy proximity to Central Park, top restaurants, and public transit.',
+    status: 'Available',
+    image: 'https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?w=800&q=80',
+    isDeleted: false,
+    createdAt: '2024-01-10T09:00:00Z',
+    updatedAt: '2024-06-20T12:00:00Z',
+  },
+  {
+    id: 2,
+    name: 'Oak Garden Retreat',
+    address: '456 Oak Ave, Los Angeles, CA',
+    price: 750000,
+    description:
+      'Spacious 3-bedroom home nestled in a quiet neighborhood just minutes from downtown Los Angeles. Features a lush private garden, newly updated kitchen with quartz counters, and hardwood floors throughout. The home also includes a detached garage and a cozy patio ideal for weekend barbecues. Perfect for families seeking both convenience and charm.',
+    status: 'Sold',
+    image: 'https://images.unsplash.com/photo-1583608205776-bfd35f0d9f83?w=800&q=80',
+    isDeleted: false,
+    createdAt: '2024-02-15T10:30:00Z',
+    updatedAt: '2024-06-22T14:45:00Z',
+  },
+  {
+    id: 3,
+    name: 'Lakeside Urban Condo',
+    address: '789 Pine Blvd, Chicago, IL',
+    price: 425000,
+    description:
+      'This charming 2-bedroom condo offers gorgeous lakefront views and is located in the heart of Chicago. Enjoy natural light from oversized windows, hardwood flooring, and an in-unit washer and dryer. The kitchen boasts stainless steel appliances and custom cabinetry. Ideal for professionals looking for style and location.',
+    status: 'Under Contract',
+    image: 'https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?w=800&q=80',
+    isDeleted: false,
+    createdAt: '2024-03-05T08:45:00Z',
+    updatedAt: '2024-06-23T16:15:00Z',
+  },
+  {
+    id: 4,
+    name: 'Elm Beachside Villa',
+    address: '321 Elm Street, Miami, FL',
+    price: 680000,
+    description:
+      'Modern 4-bedroom villa just a short walk from the white sandy beaches of Miami. The home features a private pool, expansive backyard, and open-concept interiors. A chef-style kitchen and spa-inspired bathrooms elevate the living experience. With vibrant nightlife and coastal charm nearby, it\'s the perfect Miami escape.',
+    status: 'Available',
+    image: 'https://images.unsplash.com/photo-1613490493576-7fde63acd811?w=800&q=80',
+    isDeleted: false,
+    createdAt: '2024-01-28T11:00:00Z',
+    updatedAt: '2024-06-24T09:30:00Z',
+  },
+  {
+    id: 5,
+    name: 'Maple Hill Townhouse',
+    address: '654 Maple Drive, Seattle, WA',
+    price: 595000,
+    description:
+      'This contemporary 3-bedroom townhouse offers striking views of the nearby mountains and modern eco-conscious design. The spacious interior includes high ceilings, a two-car garage, and a private deck. Green features like solar panels and energy-efficient windows make it a sustainable choice. Close to parks, tech hubs, and cafes.',
+    status: 'Available',
+    image: 'https://images.unsplash.com/photo-1570129477492-45c003edd2be?w=800&q=80',
+    isDeleted: false,
+    createdAt: '2024-03-15T13:00:00Z',
+    updatedAt: '2024-06-25T15:45:00Z',
+  },
+  {
+    id: 6,
+    name: 'Cedar Lane Bungalow',
+    address: '987 Cedar Lane, Austin, TX',
+    price: 385000,
+    description:
+      'A cozy 2-bedroom bungalow located in one of Austin\'s trendiest neighborhoods. Featuring original hardwood floors, a large front porch, and an updated kitchen with vintage charm. Walkable to local shops, coffeehouses, and live music venues. Ideal for buyers seeking character and location.',
+    status: 'Sold',
+    image: 'https://images.unsplash.com/photo-1518780664697-55e3ad937233?w=800&q=80',
+    isDeleted: false,
+    createdAt: '2024-04-02T07:30:00Z',
+    updatedAt: '2024-06-26T10:10:00Z',
+  },
+  {
+    id: 7,
+    name: 'Birch Mountain View Home',
+    address: '147 Birch Court, Denver, CO',
+    price: 525000,
+    description:
+      'Stunning 3-bedroom home in a quiet cul-de-sac with panoramic mountain views. The open floor plan is complemented by a renovated kitchen and spacious living area. Large windows provide ample natural light throughout. Ideal for families looking for peace and proximity to nature.',
+    status: 'Under Contract',
+    image: 'https://images.unsplash.com/photo-1576941089067-2de3c901e126?w=800&q=80',
+    isDeleted: false,
+    createdAt: '2024-05-10T09:15:00Z',
+    updatedAt: '2024-06-27T11:20:00Z',
+  },
+  {
+    id: 8,
+    name: 'Willow Loft Downtown',
+    address: '258 Willow Way, Portland, OR',
+    price: 465000,
+    description:
+      'A one-of-a-kind 2-bedroom loft in a converted industrial warehouse in downtown Portland. Featuring exposed brick, soaring ceilings, and custom lighting fixtures. This home blends vintage charm with modern style, ideal for creatives and professionals. Steps away from shops, breweries, and bike paths.',
+    status: 'Available',
+    image: 'https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?w=800&q=80',
+    isDeleted: false,
+    createdAt: '2024-05-25T14:20:00Z',
+    updatedAt: '2024-06-28T17:30:00Z',
+  },
+  {
+    id: 9,
+    name: 'Spruce Colonial Estate',
+    address: '369 Spruce Avenue, Boston, MA',
+    price: 725000,
+    description:
+      'Historic 4-bedroom colonial in one of Boston\'s most sought-after neighborhoods. The home boasts preserved original woodwork, a large backyard, and ample natural light. With top-rated schools and a strong sense of community, it\'s ideal for growing families. Modern updates meet timeless design.',
+    status: 'Available',
+    image: 'https://images.unsplash.com/photo-1564013799919-ab600027ffc6?w=800&q=80',
+    isDeleted: false,
+    createdAt: '2024-06-01T16:45:00Z',
+    updatedAt: '2024-06-29T18:00:00Z',
+  },
+  {
+    id: 10,
+    name: 'Redwood Bay Penthouse',
+    address: '741 Redwood Place, San Francisco, CA',
+    price: 925000,
+    description:
+      'Luxurious 3-bedroom penthouse overlooking the San Francisco Bay. The unit features a state-of-the-art kitchen, floor-to-ceiling windows, and a rooftop terrace with 360-degree views. Smart home technology and premium finishes define every corner. Walkable to tech hubs, cafes, and waterfront parks.',
+    status: 'Sold',
+    image: 'https://images.unsplash.com/photo-1512917774080-9991f1c4c750?w=800&q=80',
+    isDeleted: false,
+    createdAt: '2024-06-10T12:00:00Z',
+    updatedAt: '2024-06-30T19:45:00Z',
+  },
+  {
+    id: 11,
+    name: 'Highlands Modern Two Story',
+    address: '998 Suburban St, New York, NY',
+    price: 400000,
+    description:
+      'Beautiful 2-bedroom apartment in the heart of Manhattan, offering modern amenities and sweeping city views. The open-concept living area is perfect for entertaining guests or relaxing after a long day. Stainless steel appliances and granite countertops elevate the kitchen space. Enjoy proximity to Central Park, top restaurants, and public transit.',
+    status: 'Available',
+    image: 'https://images.unsplash.com/photo-1591247378418-c77f1532d2f8?fm=jpg&q=80&w=800',
+    isDeleted: false,
+    createdAt: '2024-01-10T09:00:00Z',
+    updatedAt: '2024-06-20T12:00:00Z',
+  },
+]
+
+export { properties, defaultProperty } 
